@@ -5,15 +5,11 @@ export const Container = styled.button`
     color: ${({theme}) => theme.COLORS.WHITE};
     border: none;
     border-radius: 5px;
-    margin-left: 10px;
-    margin-top: 12px;
+    margin: auto;
+    margin-right: 10px;
     width: 64px;
     height: 24px;
     font-size: 12px;
     font-style: bold;
-   
-   
-
-
 `
 

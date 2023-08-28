@@ -30,10 +30,11 @@ a {
 button{
     cursor: pointer;
     transition: filter 0.2s;
+    border: 0;
 }
 
 button:hover, a:hover{
-    filter: brightness(0.9);
+    filter: brightness(0.8);
 }
 
 h1 {
