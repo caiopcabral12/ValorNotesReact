@@ -8,7 +8,7 @@ export const Container = styled.div`
         background-color: ${({theme}) => theme.COLORS.BACKGROUND_900};
         color: ${({theme}) => theme.COLORS.WHITE};
         
-        margin-bottom: 8px;
+        margin-bottom: 10px;
         border-radius: 10px;
 
         &:hover{
@@ -24,11 +24,6 @@ export const Container = styled.div`
         background-color: transparent;
         color: ${({theme}) => theme.COLORS.WHITE};
     
-
-    &:hover{
-        filter: brightness(1.2);
-        transition: 0.2s;
-    }
 }
 
     > svg {
