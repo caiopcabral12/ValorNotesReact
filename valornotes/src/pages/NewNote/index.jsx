@@ -5,6 +5,7 @@ import { Input } from '../../components/Input';
 import { Section } from '../../components/section'
 import { TextArea } from '../../components/TextArea/index.jsx';
 import { NoteItem } from '../../components/NoteItem/index.jsx';
+import { Link } from 'react-router-dom';
 
 
 export function NewNote ( ) {
@@ -17,8 +18,9 @@ export function NewNote ( ) {
                     <Form>
                         <header>
                             <h1>Create Note</h1>
-            
-                            <a href="https://www.youtube.com/watch?v=Iv2e2JLL4Mg&list=RDIv2e2JLL4Mg&start_radio=1">Back</a>
+                            <Link to="/">
+                                Back
+                            </Link>
                         </header>
                         <Input placeholder="Title"/>
                         <TextArea title="Text Here" placeholder="Text Here"/>

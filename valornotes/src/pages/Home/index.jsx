@@ -8,6 +8,7 @@ import { RiSearchLine, RiFileAddLine } from "react-icons/ri";
 import { Section } from '../../components/section'
 
 
+
 export function Home () {
     return(
         <Container>
@@ -76,7 +77,7 @@ export function Home () {
                 </Section>
             </Content>
 
-            <NewNote>
+            <NewNote to="NewNote">
                <RiFileAddLine/>
                 Create Note
             </NewNote>

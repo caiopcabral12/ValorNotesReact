@@ -3,7 +3,7 @@ import { Input } from "../../components/Input";
 import { Button } from "../../components/button"
 import { RiMailLine, RiLockPasswordLine, RiUserLine } from "react-icons/ri"
 import { ButtonText } from "../../components/ButtonText";
-
+import { Link } from "react-router-dom";
 
 export function Signup () {
     return(
@@ -25,9 +25,9 @@ export function Signup () {
                 
                 <Button title="Create Account"/>
 
-                <a href="">
+                <Link to="/">
                     <ButtonText title="Back to Login"/>
-                </a>
+                </Link>
         
 
                 </Form>

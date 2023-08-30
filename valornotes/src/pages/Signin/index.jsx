@@ -3,7 +3,7 @@ import { Input } from "../../components/Input";
 import { Button } from "../../components/button"
 import { RiMailLine, RiLockPasswordLine } from "react-icons/ri"
 import { ButtonText } from "../../components/ButtonText";
-
+import{ Link } from 'react-router-dom'
 
 export function Signin () {
     return(
@@ -25,9 +25,9 @@ export function Signin () {
                     <Input placeholder="password" Icon={RiLockPasswordLine}/>
                     <Button title="Enter"/>
 
-                 <a href="">
+                 <Link to="/SignUp">
                     <ButtonText title="Create Account"/>
-                 </a>
+                 </Link>
                 
             </Form>
 

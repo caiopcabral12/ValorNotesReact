@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import { styled } from "styled-components";
+
 
 export const Container = styled.div`
    width:100%;
@@ -79,10 +81,15 @@ export const Content = styled.div`
 
 `;
 
-export const NewNote= styled.button`
+export const NewNote= styled(Link)`
    grid-area: newnote;
    background-color: ${({theme}) => theme.COLORS.GREEN};
    height: 80px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   color: ${({theme}) => theme.COLORS.WHITE};
+   
 
    border-right-width: 1px;
    border-right-style: solid;

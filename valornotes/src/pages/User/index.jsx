@@ -2,15 +2,16 @@ import { Container, Form, ProfilePic} from "./style"
 import { Input } from "../../components/Input"
 import { RiMailLine, RiLockPasswordLine, RiArrowGoBackLine, RiUserLine, RiCamera3Line } from "react-icons/ri"
 import { Button } from '../../components/button'
-
+import { Link } from "react-router-dom";
 
 export function User() {
     return(
         <Container> 
             <header>
-                <a href="/">
-                    <RiArrowGoBackLine/>
-                </a>
+                <Link to="/">
+                        <RiArrowGoBackLine/>
+                </Link>
+                
             </header>
             
             <Form>
