@@ -5,59 +5,83 @@ import { Header } from "../../components/header"
 import { Section } from "../../components/section";
 import { Tags } from "../../components/tag";
 import { ButtonText } from "../../components/ButtonText";
+import { useParams } from "react-router-dom";
+import { useState, useEffect  } from "react";
+import { api } from "../../service/api";
 
 export function Details() {
+
+  const [data, setData] = useState(null);
+
+  const params = useParams(); 
+
+  useEffect(() => {
+    async function fetchNote() {
+      const response = await api.get(`/notes/${params.id}`);
+      setData(response.data);
+    }
+
+    fetchNote();
+  }, [])
+
   return(
     <Container>
       <Header/>
+
+      {
+        data &&
       <main>
         <Content>
 
           <ButtonText title="Delete Note"/>
   
-          <h1>Intro</h1>
+          <h1>
+            {data.title}
+          </h1>
           <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, fuga necessitatibus ut dolore magni et aliquid rem culpa, unde nisi natus repudiandae dicta ullam alias vel, quos nulla qui amet.
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit nulla sed possimus dolor atque veritatis odit dolorum, quae, voluptatum corporis eveniet pariatur, nihil excepturi dolores commodi eum enim eligendi voluptatem?
+            {data.description}
           </p>
 
-          <Section title="Intro">
-            <div>
-            ABABABA <p/>
-            ABABAB <p/>
-              ABABABAS <p/>
-            ABABAB 
-            </div>
-          </Section>
-
+             { 
+             data.links &&
           <Section title="Links">
-          <Links>
-            <li>
-              <a href="https://www.youtube.com/watch?v=6pxBoe4fjDk">LINKS PATRAO</a>
-            </li>
-            <li>
-              <a href="https://www.youtube.com/watch?v=6pxBoe4fjDk">LINKS PATRAO</a>
-            </li>
-            <li>
-              <a href="https://www.youtube.com/watch?v=6pxBoe4fjDk">LINKS PATRAO</a>
-            </li>
-            <li>
-              <a href="https://www.youtube.com/watch?v=6pxBoe4fjDk">LINKS PATRAO</a>
-            </li>
-          </Links> 
-          </Section>
+            <Links>
+          {
+               data.links.map(link => (
+                 <li
+                 key={String(link.id)}>
 
-          <Section title="Tags">
-            <Tags title="Tag 2" />
-            <Tags title="Tag 3" />
-            <Tags title="Tag 4" />
+                <a href={link.url}>
+                  {link.url}
+                </a>
+              </li>
+               )) 
+           }    
+            </Links> 
           </Section>
+              }
+
+              {
+                data.tags &&
+                <Section title="Tags"> 
+                {
+                data.tags.map(tag => (
+                   <Tags 
+                   key={String(tag.id)}
+                   title={tag.name} 
+                   />
+                ))
+                
+                }
+                </Section>
+              }
           
-          <Button title="BACK" loading={false}/>
+          
+          <Button title="BACK" />
 
         </Content>
       </main>
-         
+      }   
       
       
    </Container>

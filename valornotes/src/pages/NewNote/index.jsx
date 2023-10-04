@@ -43,7 +43,25 @@ export function NewNote ( ) {
 }
 
    async function handleAddNote() {
-    try{ await api.post("/notes", {
+
+    if(!title){
+        return alert("Write a title!");
+    }
+    
+    if(!description){
+        return alert("Write a text!");
+    }
+
+    if(newLinks){
+        return alert("Click + to save link!");
+    }
+
+    if(newTags){
+        return alert("Click + to save tag!");
+    };
+
+
+  await api.post("/notes", {
         title,
         description,
         tags,
@@ -51,14 +69,9 @@ export function NewNote ( ) {
      }); 
 
      alert("Note created!");
-     navigate("/");}catch (error) {
-        // Aqui você pode lidar com o erro
-        console.log("Erro na solicitação POST:", error);
-      }
+     navigate("/");
+    };
     
-    
-
-  }
 
     return (
         <Container>

@@ -43,6 +43,9 @@ export const Menu = styled.ul`
    grid-area: menu;
    background-color: ${({theme}) => theme.COLORS.BACKGROUND_900};
 
+   padding-top: 64px;
+   text-align: center;
+
    border-right-width: 1px;
    border-right-style: solid;
    border-right-color: ${({theme}) => theme.COLORS.BACKGROUND_600};
@@ -52,20 +55,16 @@ export const Menu = styled.ul`
    border-bottom-style: solid;
    border-bottom-color: ${({theme}) => theme.COLORS.BACKGROUND_600};
 
-   display: flex;
-   padding: 50px;
-   flex-direction: column;
-
-   > button{
-    color: ${({theme}) => theme.COLORS.BACKGROUND_700};
-    margin-top: 20px;
-    display:flex;
-    
+   > li {
+      margin-bottom: 24px;
+      
+      > button:hover {
+       color: ${({theme}) => theme.COLORS.GREEN};
+       transition: 0.2s;
+   }
    }
 
-   > button:hover {
-    color: ${({theme}) => theme.COLORS.GREEN};
-   }
+   
 `;
 
 export const Search = styled.div`
