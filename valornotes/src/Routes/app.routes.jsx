@@ -5,6 +5,7 @@ import { NewNote } from '../pages/NewNote'
 import { Details } from '../pages/Details'
 import { User } from '../pages/User'
 
+
 export function AppRoutes () {
     return (
         <Routes>

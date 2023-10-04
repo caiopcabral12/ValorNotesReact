@@ -48,32 +48,6 @@ export function Home () {
                         }}
                     />
 
-                    <Notes data={{
-                        title:"Mistakes", 
-                        tags: [
-                        {id: '3', name: 'Learning'},
-                        {id: '4',name: 'Void'}
-                        ]
-                        }}
-                    />
-
-                    <Notes data={{
-                        title:"Season Goals", 
-                        tags: [
-                        {id: '5', name: 'Learning'},
-                        {id: '6',name: 'Notations'}
-                        ]
-                        }}
-                    />
-
-                    <Notes data={{
-                        title:"Wins and Losses", 
-                        tags: [
-                        {id: '1', name: 'Stats'},
-                        {id: '2',name: 'Notations'}
-                        ]
-                        }}
-                    /> 
                 </Section>
             </Content>
 

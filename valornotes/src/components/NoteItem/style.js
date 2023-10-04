@@ -33,16 +33,17 @@ export const Container = styled.div`
         
         background-color: transparent;
         
-
-        svg {
+       >svg {
             height: 30px;
-            width: 27px;        
+            width: 27px;
             
+
             color: ${({theme, IsNew}) => IsNew ? `${theme.COLORS.GRAY_300}` : theme.COLORS.RED}; 
         }
+       
     }
 
-    
+      
 
     
 
