@@ -36,8 +36,8 @@ export function Home () {
         }    
     }
     
-    function handleDetails(id) {
-         navigate(`/Details/${id}`)
+    function handleDetails(id){
+         navigate(`/details/${id}`);
     }
 
     useEffect(() => {
@@ -50,12 +50,12 @@ export function Home () {
     },[])
 
     useEffect(() => {
-        async function fetchNote(){
+        async function fetchNotes(){
             const response = await api.get(`/notes?title=${search}&tags=${tagsSelected}`);
             setNotes(response.data);
         }
 
-        fetchNote();
+        fetchNotes();
     }, [tagsSelected, search])
 
     return(
@@ -98,7 +98,7 @@ export function Home () {
             <Search>
                 <Input 
                 placeholder="Search for Notes" 
-                onChange={e => setSearch(e.target.value)}
+                onChange={(e) => setSearch(e.target.value)}
                 Icon={RiSearchLine}/>
             </Search>
 

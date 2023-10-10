@@ -5,7 +5,7 @@ import { Header } from "../../components/header"
 import { Section } from "../../components/section";
 import { Tags } from "../../components/tag";
 import { ButtonText } from "../../components/ButtonText";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect  } from "react";
 import { api } from "../../service/api";
 
@@ -13,16 +13,30 @@ export function Details() {
 
   const [data, setData] = useState(null);
 
+  const navigate = useNavigate();
   const params = useParams(); 
 
+  function handleBack(){
+    navigate(-1);
+  }
+
+  async function handleRemove(){
+      const confirm = window.confirm("Are you sure you want to delete this note?");
+
+      if(confirm){
+        await api.delete(`/notes/${params.id}`);
+        handleBack();
+      }
+  }
+
   useEffect(() => {
-    async function fetchNote() {
+    async function fetchNote(){
       const response = await api.get(`/notes/${params.id}`);
       setData(response.data);
     }
 
     fetchNote();
-  }, [])
+  }, []);
 
   return(
     <Container>
@@ -33,7 +47,10 @@ export function Details() {
       <main>
         <Content>
 
-          <ButtonText title="Delete Note"/>
+          <ButtonText 
+          title="Delete Note"
+          onClick={handleRemove}
+          />
   
           <h1>
             {data.title}
@@ -41,7 +58,7 @@ export function Details() {
           <p>
             {data.description}
           </p>
-
+          
              { 
              data.links &&
           <Section title="Links">
@@ -77,7 +94,9 @@ export function Details() {
               }
           
           
-          <Button title="BACK" />
+          <Button 
+          title="BACK"
+          onClick={handleBack} />
 
         </Content>
       </main>

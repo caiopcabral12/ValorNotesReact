@@ -46,7 +46,7 @@ export function User() {
     return(
         <Container> 
             <header>
-                <Link to="/">
+                <Link to={-1}>
                         <RiArrowGoBackLine/>
                 </Link>
                 
